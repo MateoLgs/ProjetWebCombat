@@ -1,0 +1,242 @@
+<html>
+<meta charset="UTF8">
+            <head>
+                <title>projet html</title>
+                <link rel="stylesheet" type="text/css" href="index.css">
+                <script type="text/javascript" src="index.js"></script>
+            </head>
+      <body>
+
+
+<button  onclick="monstresvivants()"> Fin Du Tour</button>
+<button  onclick="testmorts()"> check mort</button>
+
+
+      
+          <div class="zone_personnages zone_monstres"> 
+
+            <button disabled class="personnage" id="butonMonstre1">
+               
+                <img src="images/monstre_1.jpg" id="monstre_1"  class="imgPerso">   
+                  <br>
+                 <div id="monstre1stats" >
+                  
+                   <div> Monstre 1</div> <br>
+                    <label class="labelAvancement">100</label>
+                      <progress  value="100" max="100" class="avancement" id="monstre1pv"></progress>
+                      
+                  </div>  
+            </button>
+
+            <button disabled class="personnage" id="butonMonstre2">
+              <img src="images/monstre_2.jpg" id="monstre_2" class="imgPerso">   
+                <br>
+                <div id="monstre2stats" >
+                  <div> Monstre 2</div> <br>
+                    <label class="labelAvancement">100</label>
+                      <progress  value="100" max="100" class="avancement" id="monstre2pv"></progress>
+                    </div>
+            </button>
+
+            <button disabled class="personnage" id="butonMonstre3">
+              <img src="images/monstre_3.jpg" id="monstre_3"  class="imgPerso">  
+              <br>
+                <div id="monstre3stats" >
+                  <div> Monstre 3</div> <br>
+                    <label class="labelAvancement">100</label>
+                      <progress  value="100" max="100" class="avancement" id="monstre3pv"></progress>
+                    </div>
+              </button>
+
+          </div>        
+
+
+
+
+
+
+
+
+          <div class="zone_personnages zone_fighter">
+
+     <div id="personnage1" class="personnage">
+
+           <button  onclick="clickplayer('personnage1')" class="buttonplayer" id="butonPerso1" enabled>
+              <img src="images/fighter_1.png"  class="imgPerso">
+                <div>
+                   <label class="labelAvancement" id="player1pvnumber">100</label>
+                   <progress  value="100" max="100" class="avancement" id="player1pv"></progress>
+                </div>  
+                 Dégats: 10 / Shield : <span id="shieldPlayer1">0</span>% / Mana :<span id="manaPlayer1" >0</span>
+            </button>
+
+        <br/>
+
+          <button onclick="attackperso1()"  class="buttonAction" id="buttonattaqueperso1" enabled>
+            <div>
+              <img type="image" src="images/attack_button.png" class="action" >
+            </div>
+          </button>
+
+           
+          <button onclick="defenseperso1()" class="buttonAction" id="buttondefenseperso1" enabled>
+            <div>
+              <img type="image" src="images/shield_button.png" class="action" >
+            </div>
+          </button>
+              
+
+          <button onclick="specialperso1()" class="buttonAction" id="buttonspecialperso1" enabled>
+            <div>
+              <img type="image"  src="images/special_button.png" class="action" >
+            </div>
+          </button>
+    </div>
+      
+
+
+
+
+
+
+    <div id="personnage2" class="personnage">
+
+
+           <button  onclick="clickplayer('personnage2')" id="butonPerso2" enabled>
+              <img src="images/fighter_2.png"  class="imgPerso">
+                <div>
+                   <label class="labelAvancement" id="player2pvnumber">100</label>
+                   <progress  value="100" max="100" class="avancement" id="player2pv"></progress>
+                </div>  
+                 Dégats: 10 / Shield : <span id="shieldPlayer2">0</span>%  / Mana :<span id="manaPlayer2" >0</span>
+            </button>
+          <br/>
+          <button onclick="attackperso2()"  class="buttonAction" id="buttonattaqueperso2">
+            <div>
+              <img type="image" src="images/attack_button.png" class="action" >
+            </div>
+          </button>
+
+           
+           <button onclick="defenseperso2()" class="buttonAction" id="buttondefenseperso2"><div><img type="image" src="images/shield_button.png" class="action" ></div></button>
+              
+
+           <button onclick="specialperso2()" class="buttonAction" id="buttonspecialperso2"><div><img type="image"  src="images/special_button.png" class="action" ></div></button>
+  </div>
+
+
+
+
+
+
+
+
+    <div id="personnage3" class="personnage">
+
+            <button  onclick="clickplayer('personnage3')" id="butonPerso3" enabled>
+              <img src="images/fighter_3.png"  class="imgPerso">
+                <div>
+                   <label class="labelAvancement" id="player3pvnumber">100</label>
+                   <progress  value="100" max="100" class="avancement" id="player3pv"></progress>
+                </div>  
+                 Dégats: 10 / Shield : <span id="shieldPlayer3">0</span>%  / Mana :<span id="manaPlayer3" >0</span>
+            </button>
+<br/>
+
+
+          <button onclick="attackperso3()"  class="buttonAction" id="buttonattaqueperso3">
+            <div>
+              <img type="image" src="images/attack_button.png" class="action" >
+            </div>
+          </button>
+           
+           <button onclick="defenseperso3()" class="buttonAction" id="buttondefenseperso3"><div><img type="image" src="images/shield_button.png" class="action" ></div></button>
+              
+
+           <button onclick="specialperso3()" class="buttonAction" id="buttonspecialperso3"><div><img type="image"  src="images/special_button.png" class="action" ></div></button>
+  </div>
+
+
+
+
+
+
+
+
+      <div id="personnage4" class="personnage">
+
+            <button  onclick="clickplayer('personnage4')" id="butonPerso4" enabled>
+              <img src="images/fighter_4.png"  class="imgPerso">
+                <div>
+                   <label class="labelAvancement" id="player4pvnumber">100</label>
+                   <progress  value="100" max="100" class="avancement" id="player4pv"></progress>
+                </div> 
+                 Dégats: 10 / Shield : <span id="shieldPlayer4">0</span>%  / Mana :<span id="manaPlayer4" >0</span>
+            </button>
+
+           <br/>
+
+          <button onclick="attackperso4()"  class="buttonAction" id="buttonattaqueperso4"><div><img type="image" src="images/attack_button.png" class="action" ></div></button>
+
+           
+           <button onclick="defenseperso4()" class="buttonAction" id="buttondefenseperso4"><div><img type="image" src="images/shield_button.png" class="action" ></div></button>
+              
+
+           <button onclick="specialperso4()" class="buttonAction" id="buttonspecialperso4"><div><img type="image"  src="images/special_button.png" class="action" ></div></button>
+  </div>
+          </div>
+
+
+
+
+     
+
+
+
+
+
+   <!--
+     
+  <div class="interfaceaction">
+
+
+         <action>
+
+
+
+
+ <div class="player2action">
+          <button onclick="attackperso2()" id="attackbuttonperso2" disabled><div><img type="image"  src="images/attack_button.png" width=50px, height=50px></div></button>
+
+           
+           <button onclick="defenseperso2()" id="defensebuttonperso2" disabled><div><img type="image"  src="images/shield_button.png" width=50px, height=50px></div></button>
+              
+           <button onclick="specialperso2()" id="defensebuttonperso2" disabled><div><img type="image" src="images/special_button.png" width=50px, height=50px></div></button>
+  </div>
+
+<div class="player3action">
+          <button onclick="attackperso()" id="attackbuttonperso3" disabled><div><img type="image"  src="images/attack_button.png" width=50px, height=50px></div></button>
+
+           
+           <button onclick="defenseperso()" id="defensebuttonperso3" disabled><div><img type="image" src="images/shield_button.png" width=50px, height=50px></div></button>
+              
+           <button onclick="specialperso()" id="defensebuttonperso3" disabled><div><img type="image"  src="images/special_button.png" width=50px, height=50px></div></button>
+ </div>
+
+<div class="player4action">
+          <button onclick="attackperso()" id="attackbuttonperso4" disabled><div><img type="image"  src="images/attack_button.png" width=50px, height=50px></div></button>
+
+           
+           <button onclick="defenseperso()" id="defensebuttonperso4" disabled><div><img type="image" src="images/shield_button.png" width=50px, height=50px></div></button>
+              
+           <button onclick="specialperso()" id="defensebuttonperso4" disabled><div><img type="image" src="images/special_button.png" width=50px, height=50px></div></button>
+ </div>
+
+
+          </action>
+
+
+</div>
+-->
+      </body>
+</html>

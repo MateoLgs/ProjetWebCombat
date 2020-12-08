@@ -1,0 +1,216 @@
+
+html {    
+    background: url('images/imageBG.jpg') no-repeat center fixed;     
+    background-size: cover;
+}
+
+
+
+
+#test {
+  position: relative;
+  background: #00aabb;
+  border-radius: .4em;
+filter: drop-shadow(0px 0px 10px blue);
+}
+
+.test:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 12px solid transparent;
+  border-bottom-color: #00aabb;
+  border-top: 0;
+  border-left: 0;
+  margin-left: -6px;
+  margin-top: -12px;
+}
+
+#monstre_1:hover ~ #monstre1stats{
+  opacity: 1;
+}
+
+
+
+#monstre1stats{
+  background: #FF0000;
+  opacity: 0.2;
+  color: white;
+}
+
+
+
+
+
+
+
+
+#monstre_2:hover ~#monstre2stats{
+  opacity: 1;
+}
+
+#monstre2stats{
+  background: #FF0000;
+  opacity: 0.2;
+  color: white;
+}
+
+
+
+
+
+#monstre_3:hover ~#monstre3stats{
+  opacity: 1;
+}
+
+#monstre3stats{
+  background: #FF0000;
+  opacity: 0.2;
+  color: white;
+}
+
+/*------------------------------------------------------------------------------*/
+
+.interfacemonstre{
+  
+  background-color: rgba(0,255,0,0.6);
+  width: 80%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  
+}
+
+
+.interfaceperso{
+  
+  
+  width: 80%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+
+  
+}
+
+
+
+/*------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+#monstre_1{
+  display: block;
+ 
+}
+
+
+
+#monstre_2{
+  display: block;
+}
+
+
+
+#monstre_3{
+  display: block;
+}
+
+
+
+
+
+#player_1{
+  display: block;
+}
+
+
+
+#player_2{
+  display: block;
+}
+
+
+
+#player_3{
+  display: block;
+}
+
+
+
+#player_4{
+  display: block;
+}
+
+
+
+
+action{ 
+  position:absolute; bottom:5%;
+  margin-left: 2%; 
+  display: flex;
+  align-items: left;  
+   margin-right: auto;
+   margin-top: auto;
+   align-content: center;  
+}
+
+
+
+
+
+
+
+
+
+.personnage{
+  margin : 0 auto 0 auto;
+
+}
+
+.imgPerso{
+  width:200px;
+  height:200px
+}
+
+.zone_personnages{
+  width: 95%;
+  display: flex;
+  text-align: center;
+  
+}
+
+.zone_monstres{
+  padding-top: 50px;
+  background-color: rgba(255,0,0,0.0);
+}
+.zone_fighter{
+
+  padding-top: 10%;
+   background-color: rgba(0,0,255,0.0);
+}
+.action{
+  width:30px;
+  height:30px;
+  opacity:1;
+}
+
+.buttonAction{
+  border-radius: 40%;
+  display: none;
+}
+
+
+
+.avancement{
+
+  background-color: green;
+}
