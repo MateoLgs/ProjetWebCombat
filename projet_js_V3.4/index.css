@@ -5,29 +5,17 @@ html {
 }
 
 
+#fin_du_tour{
+  width:10%;
+  height: 10%;
+    position:absolute;
+    bottom:0%;
+    right:0%;
 
 
-#test {
-  position: relative;
-  background: #00aabb;
-  border-radius: .4em;
-filter: drop-shadow(0px 0px 10px blue);
 }
 
-.test:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border: 12px solid transparent;
-  border-bottom-color: #00aabb;
-  border-top: 0;
-  border-left: 0;
-  margin-left: -6px;
-  margin-top: -12px;
-}
+
 
 #monstre_1:hover ~ #monstre1stats{
   opacity: 1;
@@ -103,72 +91,9 @@ filter: drop-shadow(0px 0px 10px blue);
 
 
 
-
-
-
-
 #monstre_1{
   display: block;
- 
-}
-
-
-
-#monstre_2{
-  display: block;
-}
-
-
-
-#monstre_3{
-  display: block;
-}
-
-
-
-
-
-#player_1{
-  display: block;
-}
-
-
-
-#player_2{
-  display: block;
-}
-
-
-
-#player_3{
-  display: block;
-}
-
-
-
-#player_4{
-  display: block;
-}
-
-
-
-
-action{ 
-  position:absolute; bottom:5%;
-  margin-left: 2%; 
-  display: flex;
-  align-items: left;  
-   margin-right: auto;
-   margin-top: auto;
-   align-content: center;  
-}
-
-
-
-
-
-
-
+ }
 
 
 .personnage{

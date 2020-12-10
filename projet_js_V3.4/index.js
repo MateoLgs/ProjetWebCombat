@@ -1,4 +1,3 @@
-var attaqueEnCours = false;
 
 var randomciblemonstreattaque = [
   "personnage1",
@@ -59,18 +58,111 @@ var monstre3alive= true;
 
 
 
+var healed = true;
 
 
 
-
-
+var manaPlayer1=100;
+var manaPlayer2=100;
+var manaPlayer3=100;
+var manaPlayer4=100;
 
 
 //---------------------------------------------------------------------------
 
 
 
+function healPlayer(heal){
 
+ healed = true;
+
+var pvJoueur1 = document.getElementById('butonPerso1').getElementsByClassName("avancement")
+var pvJoueur1value = pvJoueur1[0].value
+
+var pvJoueur2 = document.getElementById('butonPerso2').getElementsByClassName("avancement")
+var pvJoueur2value = pvJoueur2[0].value
+
+var pvJoueur3 = document.getElementById('butonPerso3').getElementsByClassName("avancement")
+var pvJoueur3value = pvJoueur3[0].value
+
+var pvJoueur4 = document.getElementById('butonPerso4').getElementsByClassName("avancement")
+var pvJoueur4value = pvJoueur4[0].value
+
+
+	if(healed==true && pvJoueur1value<= pvJoueur2value && pvJoueur1value<= pvJoueur3value && pvJoueur1value<= pvJoueur4value){
+
+	var ava = document.getElementById('butonPerso1').getElementsByClassName("avancement")
+	ava[0].value = ava[0].value + heal;
+
+	var label = document.getElementById('butonPerso1').getElementsByClassName("labelAvancement")
+	label[0].innerHTML = ava[0].value;
+
+	heal = document.getElementById('butonPerso1').getElementsByClassName("labelAvancement")
+	heal[0].style.backgroundColor = "green";
+
+	healed = false;
+	}
+
+	else if(healed==true && pvJoueur2value<= pvJoueur1value && pvJoueur2value<= pvJoueur3value && pvJoueur2value<= pvJoueur4value){
+
+	var ava = document.getElementById('butonPerso2').getElementsByClassName("avancement")
+	ava[0].value = ava[0].value + heal;
+
+	var label = document.getElementById('butonPerso2').getElementsByClassName("labelAvancement")
+	label[0].innerHTML = ava[0].value;
+	
+	heal = document.getElementById('butonPerso2').getElementsByClassName("labelAvancement")
+	heal[0].style.backgroundColor = "green";
+
+	healed = false;
+	}
+
+	else if(healed==true && pvJoueur3value <= pvJoueur1value && pvJoueur3value<= pvJoueur2value && pvJoueur3value<= pvJoueur4value){
+
+	var ava = document.getElementById('butonPerso3').getElementsByClassName("avancement")
+	ava[0].value = ava[0].value + heal;
+
+	var label = document.getElementById('butonPerso3').getElementsByClassName("labelAvancement")
+	label[0].innerHTML = ava[0].value;
+	
+	heal = document.getElementById('butonPerso3').getElementsByClassName("labelAvancement")
+	heal[0].style.backgroundColor = "green";
+
+	healed = false;
+	}
+
+
+	else if(healed==true && pvJoueur4value <= pvJoueur1value && pvJoueur4value <= pvJoueur2value && pvJoueur4value <= pvJoueur3value){
+
+	var ava = document.getElementById('butonPerso4').getElementsByClassName("avancement")
+	ava[0].value = ava[0].value + heal;
+
+	var label = document.getElementById('butonPerso4').getElementsByClassName("labelAvancement")
+	label[0].innerHTML = ava[0].value;
+
+	heal = document.getElementById('butonPerso4').getElementsByClassName("labelAvancement")
+	heal[0].style.backgroundColor = "green";
+	
+	healed = false;
+	}
+
+
+	setTimeout(() => { 
+	teste1 = document.getElementById("player1pvnumber")
+	teste1.style.backgroundColor= "white";
+
+	teste2 = document.getElementById("player2pvnumber")
+	teste2.style.backgroundColor= "white";
+
+	teste3 = document.getElementById("player3pvnumber")
+	teste3.style.backgroundColor= "white";
+
+	teste4 = document.getElementById("player4pvnumber")
+	teste4.style.backgroundColor= "white";
+	}, 1000);
+
+	
+}
 //---------------------------------------------------------------------------
 
 
@@ -86,8 +178,9 @@ function attackperso1(){
 		for (var i = actionsAFermer.length - 1; i >= 0; i--) {
 			hideActions(actionsAFermer[i])
 		}
+		var randomAttaquePerso1 = Math.round(Math.random() * (19 - 17) + 17); 
 
-		choixcibleattaque(10);
+		choixcibleattaque(randomAttaquePerso1);
 
 
 }
@@ -115,6 +208,14 @@ function defenseperso1(){
 }
 
 function specialperso1(){
+
+
+
+
+	if(manaPlayer1>=60){
+		manaPlayer1=manaPlayer1-60
+		document.getElementById('manaPlayer1').innerHTML=manaPlayer1;
+
 		document.getElementById('buttonattaqueperso1').disabled=false;
 		document.getElementById('buttondefenseperso1').disabled=false;
 		document.getElementById('buttonspecialperso1').disabled=true;	
@@ -124,7 +225,21 @@ function specialperso1(){
 		for (var i = actionsAFermer.length - 1; i >= 0; i--) {
 			hideActions(actionsAFermer[i])
 		}
+
+		healPlayer(35);
+
+	}
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -139,7 +254,7 @@ function attackperso2(){
 		for (var i = actionsAFermer.length - 1; i >= 0; i--) {
 			hideActions(actionsAFermer[i])
 		}
-		choixcibleattaque(10);
+		choixcibleattaque(15);
 }
 
 function defenseperso2(){
@@ -153,7 +268,7 @@ function defenseperso2(){
 			hideActions(actionsAFermer[i])
 		}
 
-		defenseValeurPerso[1]=defenseValeurPerso[1]-0.3;
+		defenseValeurPerso[1]=defenseValeurPerso[1]-0.35;
 		
 
 		if(defenseValeurPerso[1]<0){
@@ -188,7 +303,8 @@ function attackperso3(){
 		for (var i = actionsAFermer.length - 1; i >= 0; i--) {
 			hideActions(actionsAFermer[i])
 		}
-		choixcibleattaque(10);
+		var randomAttaquePerso2 = Math.round(Math.random() * (14 - 6) + 6); 
+		choixcibleattaque(randomAttaquePerso2);
 }
 
 function defenseperso3(){
@@ -202,7 +318,7 @@ function defenseperso3(){
 			hideActions(actionsAFermer[i])
 		}
 
-		defenseValeurPerso[2]=defenseValeurPerso[2]-0.3;	
+		defenseValeurPerso[2]=defenseValeurPerso[2]-0.48;	
 		
 
 
@@ -214,6 +330,8 @@ function defenseperso3(){
 }
 
 function specialperso3(){
+if(manaPlayer1>=60){
+	manaPlayer3=manaPlayer3-60
 		document.getElementById('buttonattaqueperso3').disabled=false;
 		document.getElementById('buttondefenseperso3').disabled=false;
 		document.getElementById('buttonspecialperso3').disabled=true;	
@@ -223,7 +341,8 @@ function specialperso3(){
 		for (var i = actionsAFermer.length - 1; i >= 0; i--) {
 			hideActions(actionsAFermer[i])
 		}
-
+		healPlayer(60);
+}
 }
 
 
@@ -238,7 +357,9 @@ function attackperso4(){
 		for (var i = actionsAFermer.length - 1; i >= 0; i--) {
 			hideActions(actionsAFermer[i])
 		}
-choixcibleattaque(100);
+
+		var randomAttaquePerso3 = Math.round(Math.random() * (30 - 10) + 10); 
+		choixcibleattaque(randomAttaquePerso3);
 }
 
 function defenseperso4(){
@@ -252,7 +373,7 @@ function defenseperso4(){
 			hideActions(actionsAFermer[i])
 		}
 
-		defenseValeurPerso[3]=defenseValeurPerso[3]-0.3;
+		defenseValeurPerso[3]=defenseValeurPerso[3]-0.27;
 	
 
 		if(defenseValeurPerso[3]<0){
@@ -326,6 +447,10 @@ document.getElementById("butonMonstre1").addEventListener('click',function()
 	document.getElementById("monstre_3").style.filter = "";
 
  	degats=0
+
+	setTimeout(() => { 
+		testmorts();	
+	}, 1000);
     }  ); 
 //--------------------------------
 										
@@ -350,6 +475,10 @@ document.getElementById("butonMonstre2").addEventListener('click',function()
 	document.getElementById("monstre_3").style.filter = "";
 
 	degats=0
+
+	setTimeout(() => { 
+		testmorts();	
+	}, 1000);
     }  ); 
 //--------------------------------
 
@@ -374,6 +503,10 @@ document.getElementById("butonMonstre3").addEventListener('click',function()
 	document.getElementById("monstre_3").style.filter = "";
 
 	degats=0
+
+	setTimeout(() => { 
+		testmorts();	
+	}, 1000);
     }  ); 
 //--------------------------------
 
@@ -417,14 +550,9 @@ function clickplayer(personnage){
 		for (var i = actions.length - 1; i >= 0; i--) {
 			showActions(actions[i])
 		}
-
-
-
-
- 		
-
-
 }
+
+
 
 
 function pertePdV(personnage, perte) {
@@ -456,6 +584,11 @@ function monstresvivants(){
 		}
 attaquemonstre(monstresvivants);
 
+manaPlayer1+=10;
+manaPlayer2+=10;
+manaPlayer3+=10;
+manaPlayer4+=10;
+
 }
 
 
@@ -464,12 +597,12 @@ attaquemonstre(monstresvivants);
 
 
 
-function attaquemonstre(monstresvivants){
+function attaquemonstre(monstresrestants){
 
 		
-for(var i = 0; i< monstresvivants; i++ ) { 
+for(var i = 0; i< monstresrestants; i++ ) { 
 	var randomCible = randomciblemonstreattaque[Math.floor(Math.random()*randomciblemonstreattaque.length)];
-		var attaque = Math.round(Math.random() * 10);
+		var attaque = Math.round(Math.random() * 30);
 
 
 
@@ -539,7 +672,7 @@ var sauvegardedegats3 = document.getElementById(randomItem).getElementsByClassNa
 		
 		
 	setTimeout(() => { 
-		testmorts()	
+		testmorts();	
 	}, 1000);
 
 }
@@ -621,7 +754,7 @@ function testmorts() {
 
 		document.getElementById("butonMonstre3").style.display = "none";	
 		document.getElementById("butonMonstre3").disable = true;
-		monstre1alive=false;
+		monstre3alive=false;
 		}
 
 
@@ -633,7 +766,7 @@ function testmorts() {
 		}
 
 
-		if(monstre1alive==false && monstre2alive==false && monstre3salive==false){
+		if(monstre1alive ==false && monstre2alive == false && monstre3alive == false){
 		document.body.innerHTML = "YOU WIN";
 		}
 
