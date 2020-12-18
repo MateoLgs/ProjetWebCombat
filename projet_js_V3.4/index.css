@@ -1,6 +1,6 @@
 
 html {    
-    background: url('images/imageBG.jpg') no-repeat center fixed;     
+    background: url('images/imageBG.png') no-repeat center fixed;     
     background-size: cover;
 }
 
@@ -17,16 +17,51 @@ html {
 
 
 
-#monstre_1:hover ~ #monstre1stats{
-  opacity: 1;
+#butonMonstre1{
+  background-color: rgba(255,255,255,0);
+
+}
+
+#butonMonstre2{
+  background-color: rgba(255,255,255,0);
+}
+
+#butonMonstre3{
+  background-color: rgba(255,255,255,0);
 }
 
 
 
+#butonPerso1{
+    background-color: rgba(255,255,255,0.0);
+}
+
+#butonPerso2{
+    background-color: rgba(255,255,255,0.0);
+}
+
+
+#butonPerso3{
+    background-color: rgba(255,255,255,0.0);
+}
+
+#butonPerso4{
+    background-color: rgba(255,255,255,0.0);
+}
+
+
+
+
+#monstre_1:hover ~ #monstre1stats{
+  opacity: 1;
+
+}
+
 #monstre1stats{
   background: #FF0000;
-  opacity: 0.2;
+  opacity: 0.0;
   color: white;
+
 }
 
 
@@ -42,7 +77,7 @@ html {
 
 #monstre2stats{
   background: #FF0000;
-  opacity: 0.2;
+  opacity: 0.0;
   color: white;
 }
 
@@ -56,33 +91,13 @@ html {
 
 #monstre3stats{
   background: #FF0000;
-  opacity: 0.2;
+  opacity: 0.0;
   color: white;
 }
 
 /*------------------------------------------------------------------------------*/
 
-.interfacemonstre{
-  
-  background-color: rgba(0,255,0,0.6);
-  width: 80%;
-  height: 50%;
-  display: flex;
-  justify-content: center;
-  
-}
 
-
-.interfaceperso{
-  
-  
-  width: 80%;
-  height: 50%;
-  display: flex;
-  justify-content: center;
-
-  
-}
 
 
 
@@ -91,19 +106,18 @@ html {
 
 
 
-#monstre_1{
-  display: block;
- }
+
 
 
 .personnage{
   margin : 0 auto 0 auto;
-
+border: 0px;
 }
 
 .imgPerso{
   width:200px;
-  height:200px
+  height:200px;
+
 }
 
 .zone_personnages{
@@ -114,13 +128,13 @@ html {
 }
 
 .zone_monstres{
-  padding-top: 50px;
+  padding-top: 150px;
   background-color: rgba(255,0,0,0.0);
 }
 .zone_fighter{
-
+  height: 35%;
   padding-top: 10%;
-   background-color: rgba(0,0,255,0.0);
+  background-color: rgba(0,0,255,0.0);
 }
 .action{
   width:30px;
@@ -131,6 +145,7 @@ html {
 .buttonAction{
   border-radius: 40%;
   display: none;
+  
 }
 
 

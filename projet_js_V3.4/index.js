@@ -25,7 +25,6 @@ var player2action= document.getElementsByClassName("player2action");
 var player3action= document.getElementsByClassName("player3action");
 
 
-
 var player4action= document.getElementsByClassName("player4action");
 
 //---------------------------------------------------------------------------
@@ -69,6 +68,15 @@ var manaPlayer4=100;
 
 
 //---------------------------------------------------------------------------
+
+function loadPage(){
+
+	document.getElementById("butonPerso1").style.filter = "drop-shadow(0px 0px 10px blue)";
+	document.getElementById("butonPerso2").style.filter = "drop-shadow(0px 0px 10px blue)";
+	document.getElementById("butonPerso3").style.filter = "drop-shadow(0px 0px 10px blue)";
+	document.getElementById("butonPerso4").style.filter = "drop-shadow(0px 0px 10px blue)";
+}
+
 
 
 
@@ -180,8 +188,9 @@ function attackperso1(){
 		}
 		var randomAttaquePerso1 = Math.round(Math.random() * (19 - 17) + 17); 
 
-		choixcibleattaque(randomAttaquePerso1);
+	//	choixcibleattaque(randomAttaquePerso1);
 
+		choixcibleattaque(200)
 
 }
 
@@ -205,13 +214,13 @@ function defenseperso1(){
 		}
 
 		document.getElementById('shieldPlayer1').innerHTML=Math.round(100*(1-defenseValeurPerso[0]));
+	document.getElementById("butonPerso1").style.filter = "none";
+
 }
 
+
+
 function specialperso1(){
-
-
-
-
 	if(manaPlayer1>=60){
 		manaPlayer1=manaPlayer1-60
 		document.getElementById('manaPlayer1').innerHTML=manaPlayer1;
@@ -229,6 +238,7 @@ function specialperso1(){
 		healPlayer(35);
 
 	}
+	document.getElementById("butonPerso1").style.filter = "none";
 }
 
 
@@ -254,7 +264,9 @@ function attackperso2(){
 		for (var i = actionsAFermer.length - 1; i >= 0; i--) {
 			hideActions(actionsAFermer[i])
 		}
+		document.getElementById("butonPerso2").style.filter = "none";
 		choixcibleattaque(15);
+
 }
 
 function defenseperso2(){
@@ -276,6 +288,7 @@ function defenseperso2(){
 		}	
 
 		document.getElementById('shieldPlayer2').innerHTML=Math.round(100*(1-defenseValeurPerso[1]));
+			document.getElementById("butonPerso2").style.filter = "none";
 
 }
 
@@ -289,6 +302,7 @@ function specialperso2(){
 		for (var i = actionsAFermer.length - 1; i >= 0; i--) {
 			hideActions(actionsAFermer[i])
 		}
+			document.getElementById("butonPerso2").style.filter = "none";
 }
 
 
@@ -303,6 +317,7 @@ function attackperso3(){
 		for (var i = actionsAFermer.length - 1; i >= 0; i--) {
 			hideActions(actionsAFermer[i])
 		}
+			document.getElementById("butonPerso3").style.filter = "none";
 		var randomAttaquePerso2 = Math.round(Math.random() * (14 - 6) + 6); 
 		choixcibleattaque(randomAttaquePerso2);
 }
@@ -325,7 +340,7 @@ function defenseperso3(){
 		if(defenseValeurPerso[2]<0){
 			defenseValeurPerso[2]=0
 		}
-
+	document.getElementById("butonPerso3").style.filter = "none";
 		document.getElementById('shieldPlayer3').innerHTML=Math.round(100*(1-defenseValeurPerso[2]));
 }
 
@@ -343,6 +358,7 @@ if(manaPlayer1>=60){
 		}
 		healPlayer(60);
 }
+	document.getElementById("butonPerso4").style.filter = "none";
 }
 
 
@@ -357,7 +373,7 @@ function attackperso4(){
 		for (var i = actionsAFermer.length - 1; i >= 0; i--) {
 			hideActions(actionsAFermer[i])
 		}
-
+	document.getElementById("butonPerso4").style.filter = "none";
 		var randomAttaquePerso3 = Math.round(Math.random() * (30 - 10) + 10); 
 		choixcibleattaque(randomAttaquePerso3);
 }
@@ -379,7 +395,7 @@ function defenseperso4(){
 		if(defenseValeurPerso[3]<0){
 			defenseValeurPerso[3]=0
 		}
-
+	document.getElementById("butonPerso4").style.filter = "none";
 			document.getElementById('shieldPlayer4').innerHTML=Math.round(100*(1-defenseValeurPerso[3]));	
 }
 
@@ -389,11 +405,12 @@ function specialperso4(){
 		document.getElementById('buttonspecialperso4').disabled=true;	
 
 		document.getElementById('butonPerso4').disabled=true;
+
 		var actionsAFermer = document.getElementsByClassName("buttonAction")
 		for (var i = actionsAFermer.length - 1; i >= 0; i--) {
 			hideActions(actionsAFermer[i])
 		}
-
+	document.getElementById("butonPerso4").style.filter = "none";
 }
 
 
@@ -671,9 +688,7 @@ var sauvegardedegats3 = document.getElementById(randomItem).getElementsByClassNa
 
 		
 		
-	setTimeout(() => { 
-		testmorts();	
-	}, 1000);
+	
 
 }
 
@@ -681,25 +696,30 @@ var sauvegardedegats3 = document.getElementById(randomItem).getElementsByClassNa
 
 	setTimeout(() => { 
 	teste1 = document.getElementById("player1pvnumber")
-	teste1.style.backgroundColor= "white";
+	teste1.style.backgroundColor= 'transparent';
 
 	teste2 = document.getElementById("player2pvnumber")
-	teste2.style.backgroundColor= "white";
+	teste2.style.backgroundColor= 'transparent';
 
 	teste3 = document.getElementById("player3pvnumber")
-	teste3.style.backgroundColor= "white";
+	teste3.style.backgroundColor= 'transparent';
 
 	teste4 = document.getElementById("player4pvnumber")
-	teste4.style.backgroundColor= "white";
+	teste4.style.backgroundColor= 'transparent';
 	}, 1000);
 
 
 
 	document.getElementById('butonPerso4').disabled=false;
+	document.getElementById("butonPerso4").style.filter = "drop-shadow(0px 0px 10px blue)";
 	document.getElementById('butonPerso3').disabled=false;
+	document.getElementById("butonPerso3").style.filter = "drop-shadow(0px 0px 10px blue)";
 	document.getElementById('butonPerso2').disabled=false;
+	document.getElementById("butonPerso2").style.filter = "drop-shadow(0px 0px 10px blue)";
 	document.getElementById('butonPerso1').disabled=false;
+	document.getElementById("butonPerso1").style.filter = "drop-shadow(0px 0px 10px blue)";
 
+	testmorts();
 }
 
 
@@ -711,24 +731,56 @@ function testmorts() {
 
 		if(document.getElementById("player1pv").value<1){
 
+		document.getElementById("perso1").src="images/death_perso1.gif";
+		setTimeout(() => { 
 		document.getElementById("butonPerso1").style.display = "none";	
+		}, 1750);
+
 		document.getElementById("butonPerso1").disable = true;
 		personnage1=false;
 		}
+
+
 		if(document.getElementById("player2pv").value<1){
+
+		document.getElementById("perso2").src="images/death_perso2.gif";
+		setTimeout(() => { 
 		document.getElementById("butonPerso2").style.display = "none";	
+		}, 1750);
+
+
 		document.getElementById("butonPerso2").disable = true;
 		personnage2=false;
 		}
 
+
+
+
 		if(document.getElementById("player3pv").value<1){
+
+		document.getElementById("perso3").src="images/death_perso3.gif";
+		setTimeout(() => { 
 		document.getElementById("butonPerso3").style.display = "none";	
+		}, 1750);
+
+
 		document.getElementById("butonPerso3").disable = true;
 		personnage3=false;
 		}
 
+
+
+
+
 		if(document.getElementById("player4pv").value<1){
-		document.getElementById("butonPerso4").style.display = "none";
+
+		document.getElementById("perso4").src="images/death_perso4.gif";
+		setTimeout(() => { 
+		document.getElementById("butonPerso4").style.display = "none";	
+		}, 1200);
+
+
+
 		document.getElementById("butonPerso4").disable = true;	
 		personnage4=false;
 		}
@@ -736,23 +788,40 @@ function testmorts() {
 
 
 
-		if(document.getElementById("monstre1pv").value<1){
 
+
+
+
+
+
+
+
+		if(document.getElementById("monstre1pv").value<1){
+		document.getElementById("monstre_1").src="images/death_demon.gif";
+		setTimeout(() => { 
 		document.getElementById("butonMonstre1").style.display = "none";	
+		}, 2400);
+	
 		document.getElementById("butonMonstre1").disable = true;
 		monstre1alive=false;
 		}
 
 		if(document.getElementById("monstre2pv").value<1){
-
+		document.getElementById("monstre_2").src="images/death_dragon.gif";
+		setTimeout(() => { 
 		document.getElementById("butonMonstre2").style.display = "none";	
+		}, 1500);
+
 		document.getElementById("butonMonstre2").disable = true;
 		monstre2alive=false;
 		}
 
 		if(document.getElementById("monstre3pv").value<1){
-
+		document.getElementById("monstre_3").src="images/death_lizard.gif";
+		setTimeout(() => { 
 		document.getElementById("butonMonstre3").style.display = "none";	
+		}, 1500);
+
 		document.getElementById("butonMonstre3").disable = true;
 		monstre3alive=false;
 		}
@@ -760,15 +829,24 @@ function testmorts() {
 
 
 
-
+	setTimeout(() => { 
 		if(personnage1==false && personnage2==false && personnage3==false && personnage4==false){
 		document.body.innerHTML = "YOU LOSE";
 		}
+	}, 3000);
 
-
+	setTimeout(() => { 
 		if(monstre1alive ==false && monstre2alive == false && monstre3alive == false){
 		document.body.innerHTML = "YOU WIN";
 		}
+	}, 3000);
+
+
+
+
+
+
+
 
 /*
 	if(monstre1pv < 1){

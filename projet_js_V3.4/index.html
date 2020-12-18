@@ -5,11 +5,10 @@
                 <link rel="stylesheet" type="text/css" href="index.css">
                 <script type="text/javascript" src="index.js"></script>
             </head>
-      <body>
+      <body onload="loadPage()">
 
 
 <button  onclick="monstresvivants()" id="fin_du_tour"> Finir le tour</button>
-<button  onclick="testmorts()"> check mort</button>
 
 
       
@@ -17,7 +16,7 @@
 
             <button disabled class="personnage" id="butonMonstre1">
                
-                <img src="images/monstre_1.jpg" id="monstre_1"  class="imgPerso">   
+                <img src="images/idle_demon.gif" id="monstre_1"  class="imgPerso">   
                   <br>
                  <div id="monstre1stats" >
                   
@@ -29,7 +28,7 @@
             </button>
 
             <button disabled class="personnage" id="butonMonstre2">
-              <img src="images/monstre_2.jpg" id="monstre_2" class="imgPerso">   
+              <img src="images/idle_dragon.gif" id="monstre_2" class="imgPerso">   
                 <br>
                 <div id="monstre2stats" >
                   <div> Monstre 2</div> <br>
@@ -39,7 +38,7 @@
             </button>
 
             <button disabled class="personnage" id="butonMonstre3">
-              <img src="images/monstre_3.jpg" id="monstre_3"  class="imgPerso">  
+              <img src="images/idle_lizard.gif" id="monstre_3"  class="imgPerso">  
               <br>
                 <div id="monstre3stats" >
                   <div> Monstre 3</div> <br>
@@ -61,8 +60,8 @@
 
      <div id="personnage1" class="personnage">
 
-           <button  onclick="clickplayer('personnage1')" class="buttonplayer" id="butonPerso1" enabled>
-              <img src="images/fighter_1.png"  class="imgPerso">
+           <button  onclick="clickplayer('personnage1')" class="personnage" id="butonPerso1" enabled>
+              <img src="images/idle_perso1.gif"   id="perso1"  class="imgPerso">
                 <div>
                    <label class="labelAvancement" id="player1pvnumber">100</label>
                    <progress  value="100" max="100" class="avancement" id="player1pv"></progress>
@@ -102,8 +101,8 @@
     <div id="personnage2" class="personnage">
 
 
-           <button  onclick="clickplayer('personnage2')" id="butonPerso2" enabled>
-              <img src="images/fighter_2.png"  class="imgPerso">
+           <button  onclick="clickplayer('personnage2')" id="butonPerso2" class="personnage" enabled>
+              <img src="images/idle_perso2.gif"   id="perso2" class="imgPerso">
                 <div>
                    <label class="labelAvancement" id="player2pvnumber">100</label>
                    <progress  value="100" max="100" class="avancement" id="player2pv"></progress>
@@ -133,8 +132,8 @@
 
     <div id="personnage3" class="personnage">
 
-            <button  onclick="clickplayer('personnage3')" id="butonPerso3" enabled>
-              <img src="images/fighter_3.png"  class="imgPerso">
+            <button  onclick="clickplayer('personnage3')" id="butonPerso3" class="personnage" enabled>
+              <img src="images/idle_perso3.gif"   id="perso3" class="imgPerso">
                 <div>
                    <label class="labelAvancement" id="player3pvnumber">100</label>
                    <progress  value="100" max="100" class="avancement" id="player3pv"></progress>
@@ -166,8 +165,8 @@
 
       <div id="personnage4" class="personnage">
 
-            <button  onclick="clickplayer('personnage4')" id="butonPerso4" enabled>
-              <img src="images/fighter_4.png"  class="imgPerso">
+            <button  onclick="clickplayer('personnage4')" id="butonPerso4" class="personnage"enabled>
+              <img src="images/idle_perso4.gif"   id="perso4" class="imgPerso">
                 <div>
                    <label class="labelAvancement" id="player4pvnumber">100</label>
                    <progress  value="100" max="100" class="avancement" id="player4pv"></progress>
