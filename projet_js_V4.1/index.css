@@ -58,10 +58,8 @@ html {
 }
 
 #monstre1stats{
-  background: #FF0000;
   opacity: 0.0;
-  color: white;
-
+  color: black;
 }
 
 
@@ -76,9 +74,8 @@ html {
 }
 
 #monstre2stats{
-  background: #FF0000;
   opacity: 0.0;
-  color: white;
+  color: black;
 }
 
 
@@ -90,9 +87,8 @@ html {
 }
 
 #monstre3stats{
-  background: #FF0000;
   opacity: 0.0;
-  color: white;
+  color: black;
 }
 
 /*------------------------------------------------------------------------------*/
@@ -133,7 +129,6 @@ border: 0px;
 }
 .zone_fighter{
   height: 50%;
-
   background-color: rgba(0,0,255,0.0);
 }
 .action{
@@ -153,7 +148,7 @@ border: 0px;
 }
 
 #infoButton{
-width: 5%;
+width: 4%;
 height: width;
 top: 0%;
 left: 0%;
@@ -168,6 +163,11 @@ left: 0%;
   background-color: white;
 }
 
+
+#gameOver{
+  width: 100%;
+  height: 100%;
+}
 
 .avancement{
 
