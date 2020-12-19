@@ -6,6 +6,17 @@ var randomciblemonstreattaque = [
   "personnage4"
 ];
 
+var randomspecialdegats = [
+  "personnage1",
+  "personnage2",
+  "personnage3",
+  "personnage4",
+  "butonMonstre1",
+  "butonMonstre2",
+  "butonMonstre3"
+
+];
+
 var defenseValeurPerso = [1,1,1,1];
 
 var attaquemonstre1=false;
@@ -78,6 +89,36 @@ function loadPage(){
 }
 
 
+function specialCritique(degats){
+
+var randomCible = randomspecialdegats[Math.floor(Math.random()*randomspecialdegats.length)];
+
+
+	var ava = document.getElementById(randomCible).getElementsByClassName("avancement")
+		ava[0].value = Math.round(ava[0].value-100);
+
+	var label = document.getElementById(randomCible).getElementsByClassName("labelAvancement")
+		label[0].innerHTML = ava[0].value;
+
+
+	teste = document.getElementById(randomCible).getElementsByClassName("labelAvancement")
+	teste[0].style.backgroundColor= "red";
+
+setTimeout(() => { 
+	teste1 = document.getElementById("player1pvnumber")
+	teste1.style.backgroundColor= 'transparent';
+
+	teste2 = document.getElementById("player2pvnumber")
+	teste2.style.backgroundColor= 'transparent';
+
+	teste3 = document.getElementById("player3pvnumber")
+	teste3.style.backgroundColor= 'transparent';
+
+	teste4 = document.getElementById("player4pvnumber")
+	teste4.style.backgroundColor= 'transparent';
+	}, 1000);
+testmorts();
+}
 
 
 function healPlayer(heal){
@@ -157,16 +198,16 @@ var pvJoueur4value = pvJoueur4[0].value
 
 	setTimeout(() => { 
 	teste1 = document.getElementById("player1pvnumber")
-	teste1.style.backgroundColor= "white";
+	teste1.style.backgroundColor= "transparent";
 
 	teste2 = document.getElementById("player2pvnumber")
-	teste2.style.backgroundColor= "white";
+	teste2.style.backgroundColor= "transparent";
 
 	teste3 = document.getElementById("player3pvnumber")
-	teste3.style.backgroundColor= "white";
+	teste3.style.backgroundColor= "transparent";
 
 	teste4 = document.getElementById("player4pvnumber")
-	teste4.style.backgroundColor= "white";
+	teste4.style.backgroundColor= "transparent";
 	}, 1000);
 
 	
@@ -188,9 +229,9 @@ function attackperso1(){
 		}
 		var randomAttaquePerso1 = Math.round(Math.random() * (19 - 17) + 17); 
 
-	//	choixcibleattaque(randomAttaquePerso1);
+	choixcibleattaque(randomAttaquePerso1);
 
-		choixcibleattaque(200)
+
 
 }
 
@@ -293,6 +334,10 @@ function defenseperso2(){
 }
 
 function specialperso2(){
+			if(manaPlayer2>=70){
+		manaPlayer2=manaPlayer2-70
+		document.getElementById('manaPlayer2').innerHTML=manaPlayer2;
+
 		document.getElementById('buttonattaqueperso2').disabled=false;
 		document.getElementById('buttondefenseperso2').disabled=false;
 		document.getElementById('buttonspecialperso2').disabled=true;	
@@ -302,7 +347,11 @@ function specialperso2(){
 		for (var i = actionsAFermer.length - 1; i >= 0; i--) {
 			hideActions(actionsAFermer[i])
 		}
-			document.getElementById("butonPerso2").style.filter = "none";
+
+		specialCritique(100);
+
+	}
+	document.getElementById("butonPerso2").style.filter = "none";
 }
 
 
@@ -400,17 +449,24 @@ function defenseperso4(){
 }
 
 function specialperso4(){
+			if(manaPlayer4>=80){
+		manaPlayer4=manaPlayer4-80
+		document.getElementById('manaPlayer4').innerHTML=manaPlayer4;
+
 		document.getElementById('buttonattaqueperso4').disabled=false;
 		document.getElementById('buttondefenseperso4').disabled=false;
 		document.getElementById('buttonspecialperso4').disabled=true;	
 
 		document.getElementById('butonPerso4').disabled=true;
-
 		var actionsAFermer = document.getElementsByClassName("buttonAction")
 		for (var i = actionsAFermer.length - 1; i >= 0; i--) {
 			hideActions(actionsAFermer[i])
 		}
-	document.getElementById("butonPerso4").style.filter = "none";
+
+		specialCritique(100);
+
+	}
+	document.getElementById("butonPerso2").style.filter = "none";
 }
 
 
@@ -601,10 +657,26 @@ function monstresvivants(){
 		}
 attaquemonstre(monstresvivants);
 
+if(manaPlayer1<100){
 manaPlayer1+=10;
+}
+
+if(manaPlayer2<100){
 manaPlayer2+=10;
+}
+
+if(manaPlayer3<100){
 manaPlayer3+=10;
+}
+
+if(manaPlayer4<100){
 manaPlayer4+=10;
+}
+		document.getElementById('manaPlayer1').innerHTML=manaPlayer1;
+		document.getElementById('manaPlayer2').innerHTML=manaPlayer2;
+		document.getElementById('manaPlayer3').innerHTML=manaPlayer3;
+		document.getElementById('manaPlayer4').innerHTML=manaPlayer4;
+
 
 }
 
@@ -730,7 +802,7 @@ var sauvegardedegats3 = document.getElementById(randomItem).getElementsByClassNa
 function testmorts() {
 
 		if(document.getElementById("player1pv").value<1){
-
+			document.getElementById("player1pv").value=1000
 		document.getElementById("perso1").src="images/death_perso1.gif";
 		setTimeout(() => { 
 		document.getElementById("butonPerso1").style.display = "none";	
@@ -738,11 +810,30 @@ function testmorts() {
 
 		document.getElementById("butonPerso1").disable = true;
 		personnage1=false;
+
+				  for( var i = 0; i < randomciblemonstreattaque.length; i++){ 
+                                   
+        if ( randomciblemonstreattaque[i] === "personnage1") { 
+            randomciblemonstreattaque.splice(i, 1); 
+            i--; 
+        }
+	}
+
+						  for( var i = 0; i < randomspecialdegats.length; i++){ 
+                                   
+        if ( randomspecialdegats[i] === "personnage1") { 
+            randomspecialdegats.splice(i, 1); 
+            i--; 
+        }
+	}
 		}
 
 
-		if(document.getElementById("player2pv").value<1){
 
+
+
+		if(document.getElementById("player2pv").value<1){
+		document.getElementById("player2pv").value=1000
 		document.getElementById("perso2").src="images/death_perso2.gif";
 		setTimeout(() => { 
 		document.getElementById("butonPerso2").style.display = "none";	
@@ -751,13 +842,28 @@ function testmorts() {
 
 		document.getElementById("butonPerso2").disable = true;
 		personnage2=false;
+
+				  for( var i = 0; i < randomciblemonstreattaque.length; i++){ 
+                                   
+        if ( randomciblemonstreattaque[i] === "personnage2") { 
+            randomciblemonstreattaque.splice(i, 1); 
+            i--; 
+        }
+	}
+						  for( var i = 0; i < randomspecialdegats.length; i++){ 
+                                   
+        if ( randomspecialdegats[i] === "personnage2") { 
+            randomspecialdegats.splice(i, 1); 
+            i--; 
+        }
+	}
 		}
 
 
 
 
 		if(document.getElementById("player3pv").value<1){
-
+document.getElementById("player3pv").value=1000
 		document.getElementById("perso3").src="images/death_perso3.gif";
 		setTimeout(() => { 
 		document.getElementById("butonPerso3").style.display = "none";	
@@ -766,6 +872,22 @@ function testmorts() {
 
 		document.getElementById("butonPerso3").disable = true;
 		personnage3=false;
+
+				  for( var i = 0; i < randomciblemonstreattaque.length; i++){ 
+                                   
+        if ( randomciblemonstreattaque[i] === "personnage3") { 
+            randomciblemonstreattaque.splice(i, 1); 
+            i--; 
+        }
+	}
+
+					  for( var i = 0; i < randomspecialdegats.length; i++){ 
+                                   
+        if ( randomspecialdegats[i] === "personnage3") { 
+            randomspecialdegats.splice(i, 1); 
+            i--; 
+        }
+	}
 		}
 
 
@@ -773,7 +895,7 @@ function testmorts() {
 
 
 		if(document.getElementById("player4pv").value<1){
-
+document.getElementById("player4pv").value=1000
 		document.getElementById("perso4").src="images/death_perso4.gif";
 		setTimeout(() => { 
 		document.getElementById("butonPerso4").style.display = "none";	
@@ -783,6 +905,22 @@ function testmorts() {
 
 		document.getElementById("butonPerso4").disable = true;	
 		personnage4=false;
+
+				  for( var i = 0; i < randomciblemonstreattaque.length; i++){ 
+                                   
+        if ( randomciblemonstreattaque[i] === "personnage4") { 
+            randomciblemonstreattaque.splice(i, 1); 
+            i--; 
+        }
+	}
+
+						  for( var i = 0; i < randomspecialdegats.length; i++){ 
+                                   
+        if ( randomspecialdegats[i] === "personnage4") { 
+            randomspecialdegats.splice(i, 1); 
+            i--; 
+        }
+	}
 		}
 
 
