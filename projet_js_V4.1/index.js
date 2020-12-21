@@ -419,7 +419,7 @@ if(manaPlayer1>=60){
 		}
 		healPlayer(60);
 }
-	document.getElementById("butonPerso4").style.filter = "none";
+	document.getElementById("butonPerso3").style.filter = "none";
 joueursActuels=joueursActuels+1;
 }
 
@@ -481,7 +481,7 @@ function specialperso4(){
 		specialCritique(100);
 
 	}
-	document.getElementById("butonPerso2").style.filter = "none";
+	document.getElementById("butonPerso4").style.filter = "none";
 	joueursActuels=joueursActuels+1;
 }
 
@@ -691,11 +691,14 @@ function pertePdV(personnage, perte) {
 
 
 function finDuTour(){
+	if(joueursActuels===joueursMax){
 			document.getElementById('buttonspecialperso1').disabled=false;
 			document.getElementById('buttonspecialperso2').disabled=false;
 			document.getElementById('buttonspecialperso3').disabled=false;
 			document.getElementById('buttonspecialperso4').disabled=false;
 	monstresvivants();
+	joueursActuels=0;
+}
 }
 
 function monstresvivants(){
@@ -866,6 +869,7 @@ function testmorts() {
             i--; 
         }
 	}
+	joueursMax=joueursMax-1;
 		}
 
 
@@ -897,6 +901,7 @@ function testmorts() {
             i--; 
         }
 	}
+		joueursMax=joueursMax-1;
 		}
 
 
@@ -928,6 +933,7 @@ document.getElementById("player3pv").value=1000
             i--; 
         }
 	}
+		joueursMax=joueursMax-1;
 		}
 
 
@@ -961,6 +967,7 @@ document.getElementById("player4pv").value=1000
             i--; 
         }
 	}
+		joueursMax=joueursMax-1;
 		}
 
 
