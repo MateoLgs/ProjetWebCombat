@@ -8,7 +8,6 @@
       <body onload="loadPage()">
 
 
-<button  onclick="finDuTour()" id="fin_du_tour"> Finir le tour</button>
 <img src="images/infoLogo.png" id=infoButton>
 <span id="infos">Chaque personnages gagnent 10 mana par tour (100 maximum) <br>
                 Les monstres ont un maximum de 200 pv <br>
@@ -24,7 +23,12 @@
 
 
                 </span>
-     
+
+
+
+
+
+
           <div class="zone_personnages zone_monstres"> 
 
             <button disabled class="personnage" id="butonMonstre1">
@@ -34,7 +38,7 @@
                  <div id="monstre1stats" >
                   
                    <div> Demon</div> <br>
-                    <label class="labelAvancement">200</label>
+                    <label class="labelAvancement"  id="monstre1pvNumber">200</label>
                       <progress  value="200" max="200" class="avancement" id="monstre1pv"></progress>
                       
                   </div>  
@@ -45,7 +49,7 @@
                 <br>
                 <div id="monstre2stats" >
                   <div> Dragon</div> <br>
-                    <label class="labelAvancement">200</label>
+                    <label class="labelAvancement" id="monstre2pvNumber">200</label>
                       <progress  value="200" max="200" class="avancement" id="monstre2pv"></progress>
                     </div>
             </button>
@@ -55,7 +59,7 @@
               <br>
                 <div id="monstre3stats" >
                   <div>Lezard</div> <br>
-                    <label class="labelAvancement">200</label>
+                    <label class="labelAvancement" id="monstre3pvNumber">200</label>
                       <progress  value="200" max="200" class="avancement" id="monstre3pv"></progress>
                     </div>
               </button>
@@ -252,5 +256,11 @@
 
 </div>
 -->
+
+    <div id="actionMonstre">Tour des Monstres</div>  
+    <div id="actionJoueur">Tour des Joueurs</div>  
+
+    <button  onclick="finDuTour()" id="fin_du_tour"> Finir le tour</button>
+
       </body>
 </html>
