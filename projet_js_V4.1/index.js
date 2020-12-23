@@ -19,6 +19,7 @@ var randomspecialdegats = [
 var buffPerso4= 1;
 
 
+var joueursActuels=4;
 
 
 var defenseValeurPerso = [1,1,1,1];
@@ -278,7 +279,9 @@ function attackperso1(){
 		}
 		var randomAttaquePerso1 = Math.round(Math.random() * (19 - 17) + 17); 
 		document.getElementById("butonPerso1").style.filter = "none";
-	choixcibleattaque(randomAttaquePerso1);
+	//choixcibleattaque(randomAttaquePerso1);
+		choixcibleattaque(200);
+
 		
 
 
@@ -724,14 +727,23 @@ function pertePdV(personnage, perte) {
 }
 
 
+
+
+
 function finDuTour(){
+
+
+if(joueursActuels===randomciblemonstreattaque.length){
 			document.getElementById('buttonspecialperso1').disabled=false;
 			document.getElementById('buttonspecialperso2').disabled=false;
 			document.getElementById('buttonspecialperso3').disabled=false;
 			document.getElementById('buttonspecialperso4').disabled=false;
 	monstresvivants();
-
 }
+}
+
+
+
 
 function monstresvivants(){
 	var monstresvivants=0;
@@ -779,12 +791,9 @@ manaPlayer4+=10;
 
 
 
-
 function attaquemonstre(monstresrestants){
 
-		
-for(var i = 0; i< monstresrestants; i++ ) { 
-		
+
 	var randomCible = randomciblemonstreattaque[Math.floor(Math.random()*randomciblemonstreattaque.length)];
 		var attaque = Math.round(Math.random() * 30);
 
@@ -837,7 +846,8 @@ for(var i = 0; i< monstresrestants; i++ ) {
 	document.getElementById('shieldPlayer3').innerHTML=Math.round(100*(1-defenseValeurPerso[2]));
 	document.getElementById('shieldPlayer4').innerHTML=Math.round(100*(1-defenseValeurPerso[3]));
 
-}
+
+
 
 
 
@@ -857,6 +867,206 @@ for(var i = 0; i< monstresrestants; i++ ) {
 
 
 
+
+
+	testmorts();
+	monstresrestants=monstresrestants-1;
+
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+	
+if(monstresrestants>0){
+		setTimeout(() => { 
+	var randomCible = randomciblemonstreattaque[Math.floor(Math.random()*randomciblemonstreattaque.length)];
+		var attaque = Math.round(Math.random() * 30);
+
+
+
+		if(randomCible==='personnage1'){
+		persoNumeroDefense=0;
+		document.getElementById("perso1").src="images/hurt_perso1.gif";
+		setTimeout(() => { 
+	    document.getElementById("perso1").src="images/idle_perso1.gif";
+		}, 1000);
+	}
+		if(randomCible==='personnage2'){
+		persoNumeroDefense=1;
+		document.getElementById("perso2").src="images/hurt_perso2.gif";
+		setTimeout(() => { 
+	    document.getElementById("perso2").src="images/idle_perso2.gif";
+		}, 1000);
+	}
+		if(randomCible==='personnage3'){
+		persoNumeroDefense=2;
+		document.getElementById("perso3").src="images/hurt_perso3.gif";
+		setTimeout(() => { 
+	    document.getElementById("perso3").src="images/idle_perso3.gif";
+		}, 1000);
+	}
+		if(randomCible==='personnage4'){
+		persoNumeroDefense=3;
+		document.getElementById("perso4").src="images/hurt_perso4.gif";
+		setTimeout(() => { 
+	    document.getElementById("perso4").src="images/idle_perso4.gif";
+		}, 1000);
+	}
+	
+	var defenseValeur = defenseValeurPerso[persoNumeroDefense];
+
+
+	var ava = document.getElementById(randomCible).getElementsByClassName("avancement")
+		ava[0].value = Math.round(ava[0].value-attaque*defenseValeur);
+
+	var label = document.getElementById(randomCible).getElementsByClassName("labelAvancement")
+		label[0].innerHTML = ava[0].value;
+
+	teste = document.getElementById(randomCible).getElementsByClassName("labelAvancement")
+	teste[0].style.backgroundColor= "red";
+
+	defenseValeurPerso[persoNumeroDefense]=1
+	document.getElementById('shieldPlayer1').innerHTML=Math.round(100*(1-defenseValeurPerso[0]));
+	document.getElementById('shieldPlayer2').innerHTML=Math.round(100*(1-defenseValeurPerso[1]));
+	document.getElementById('shieldPlayer3').innerHTML=Math.round(100*(1-defenseValeurPerso[2]));
+	document.getElementById('shieldPlayer4').innerHTML=Math.round(100*(1-defenseValeurPerso[3]));
+
+
+
+
+
+
+	setTimeout(() => { 
+	teste1 = document.getElementById("player1pvnumber")
+	teste1.style.backgroundColor= 'transparent';
+
+	teste2 = document.getElementById("player2pvnumber")
+	teste2.style.backgroundColor= 'transparent';
+
+	teste3 = document.getElementById("player3pvnumber")
+	teste3.style.backgroundColor= 'transparent';
+
+	teste4 = document.getElementById("player4pvnumber")
+	teste4.style.backgroundColor= 'transparent';
+	}, 1000);
+
+
+
+
+
+	testmorts();
+
+		}, 1500);
+			monstresrestants=monstresrestants-1;
+}
+
+
+
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+	
+if(monstresrestants>0){
+		setTimeout(() => { 
+	var randomCible = randomciblemonstreattaque[Math.floor(Math.random()*randomciblemonstreattaque.length)];
+		var attaque = Math.round(Math.random() * 30);
+
+
+
+		if(randomCible==='personnage1'){
+		persoNumeroDefense=0;
+		document.getElementById("perso1").src="images/hurt_perso1.gif";
+		
+	//	if(document.getElementById("player1pv").value>1){
+		setTimeout(() => { 
+	    document.getElementById("perso1").src="images/idle_perso1.gif";
+		}, 1000);
+	//}
+	}
+		if(randomCible==='personnage2'){
+		persoNumeroDefense=1;
+		document.getElementById("perso2").src="images/hurt_perso2.gif";
+		
+		setTimeout(() => { 
+	    document.getElementById("perso2").src="images/idle_perso2.gif";
+		}, 1000);
+	}
+		if(randomCible==='personnage3'){
+		persoNumeroDefense=2;
+		document.getElementById("perso3").src="images/hurt_perso3.gif";
+		setTimeout(() => { 
+	    document.getElementById("perso3").src="images/idle_perso3.gif";
+		}, 1000);
+	}
+		if(randomCible==='personnage4'){
+		persoNumeroDefense=3;
+		document.getElementById("perso4").src="images/hurt_perso4.gif";
+		setTimeout(() => { 
+	    document.getElementById("perso4").src="images/idle_perso4.gif";
+		}, 1000);
+	}
+	
+	var defenseValeur = defenseValeurPerso[persoNumeroDefense];
+
+
+	var ava = document.getElementById(randomCible).getElementsByClassName("avancement")
+		ava[0].value = Math.round(ava[0].value-attaque*defenseValeur);
+
+	var label = document.getElementById(randomCible).getElementsByClassName("labelAvancement")
+		label[0].innerHTML = ava[0].value;
+
+	teste = document.getElementById(randomCible).getElementsByClassName("labelAvancement")
+	teste[0].style.backgroundColor= "red";
+
+	defenseValeurPerso[persoNumeroDefense]=1
+	document.getElementById('shieldPlayer1').innerHTML=Math.round(100*(1-defenseValeurPerso[0]));
+	document.getElementById('shieldPlayer2').innerHTML=Math.round(100*(1-defenseValeurPerso[1]));
+	document.getElementById('shieldPlayer3').innerHTML=Math.round(100*(1-defenseValeurPerso[2]));
+	document.getElementById('shieldPlayer4').innerHTML=Math.round(100*(1-defenseValeurPerso[3]));
+
+
+
+
+
+
+	setTimeout(() => { 
+	teste1 = document.getElementById("player1pvnumber")
+	teste1.style.backgroundColor= 'transparent';
+
+	teste2 = document.getElementById("player2pvnumber")
+	teste2.style.backgroundColor= 'transparent';
+
+	teste3 = document.getElementById("player3pvnumber")
+	teste3.style.backgroundColor= 'transparent';
+
+	teste4 = document.getElementById("player4pvnumber")
+	teste4.style.backgroundColor= 'transparent';
+	}, 1000);
+
+
+
+
+
+	testmorts();
+
+		}, 3000);
+			monstresrestants=monstresrestants-1;
+}
+
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------
+	setTimeout(() => { 
 	document.getElementById('butonPerso4').disabled=false;
 	document.getElementById("butonPerso4").style.filter = "drop-shadow(0px 0px 10px blue)";
 	document.getElementById('butonPerso3').disabled=false;
@@ -865,9 +1075,7 @@ for(var i = 0; i< monstresrestants; i++ ) {
 	document.getElementById("butonPerso2").style.filter = "drop-shadow(0px 0px 10px blue)";
 	document.getElementById('butonPerso1').disabled=false;
 	document.getElementById("butonPerso1").style.filter = "drop-shadow(0px 0px 10px blue)";
-
-	testmorts();
-
+		}, 4000);
 }
 
 
@@ -882,7 +1090,7 @@ function testmorts() {
 		document.getElementById("perso1").src="images/death_perso1.gif";
 		setTimeout(() => { 
 		document.getElementById("butonPerso1").style.display = "none";	
-		}, 1750);
+		}, 3000);
 
 		document.getElementById("butonPerso1").disable = true;
 		personnage1=false;
@@ -910,11 +1118,11 @@ function testmorts() {
 
 
 		if(document.getElementById("player2pv").value<1){
-		document.getElementById("player2pv").value=1000
+		document.getElementById("player2pv").value=-1000
 		document.getElementById("perso2").src="images/death_perso2.gif";
 		setTimeout(() => { 
 		document.getElementById("butonPerso2").style.display = "none";	
-		}, 1750);
+		}, 2000);
 
 
 		document.getElementById("butonPerso2").disable = true;
@@ -944,7 +1152,7 @@ document.getElementById("player3pv").value=1000
 		document.getElementById("perso3").src="images/death_perso3.gif";
 		setTimeout(() => { 
 		document.getElementById("butonPerso3").style.display = "none";	
-		}, 1750);
+		}, 2000);
 
 
 		document.getElementById("butonPerso3").disable = true;
@@ -976,7 +1184,7 @@ document.getElementById("player4pv").value=1000
 		document.getElementById("perso4").src="images/death_perso4.gif";
 		setTimeout(() => { 
 		document.getElementById("butonPerso4").style.display = "none";	
-		}, 1200);
+		}, 2000);
 
 
 
