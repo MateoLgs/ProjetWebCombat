@@ -431,7 +431,7 @@ function specialperso2(){
 			hideActions(actionsAFermer[i])
 		}
 
-		specialCritique(100);
+		specialCritique(75);
 
 	}
 	document.getElementById("butonPerso2").style.filter = "none";
@@ -703,8 +703,12 @@ document.getElementById("butonMonstre3").addEventListener('click',function()
 
 
 	testmorts();
+
+	setTimeout(() => { 
 		joueursActuels=joueursActuels+1;
 	finDuTour();
+	}, 1000);
+
 
 }
 
@@ -775,6 +779,7 @@ function finDuTour(){
 
 
 if(joueursActuels===randomciblemonstreattaque.length){
+		setTimeout(() => {
 	document.getElementById('actionMonstre').style.display = "inline-block";
 	joueursActuels=0;
 			document.getElementById('buttonspecialperso1').disabled=false;
@@ -785,7 +790,8 @@ if(joueursActuels===randomciblemonstreattaque.length){
 	setTimeout(() => {
 	document.getElementById('actionMonstre').style.display = "none"; 
 	monstresvivants();
-		}, 3000);
+		}, 2000);
+			}, 3000);
 }
 }
 
