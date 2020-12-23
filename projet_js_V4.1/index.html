@@ -16,8 +16,10 @@
                 Les valeurs entre crochets sont les prix a payer pour effectuer une action<br>
                 Une action ne peut pas être utilisée deux tours de suite par le même personnage<br>
                 ----Coups spéciaux :---- <br>
-                Heal : Soigne le personnage le plus faible d'un certain nombre de pv<br>
-                Sniper : Inflige un certain nombre de dégats à un personnage ou à monstre aléatoire.
+                Soin : Soigne le personnage le plus faible d'un certain nombre de pv<br>
+                Foudre : Inflige un certain nombre de dégats à un personnage ou à monstre aléatoire.<br>
+                Tempête : Inflige un certain nombre de dégats au monstres adverses, répartis aléatoirement.<br>
+                Potion Magique : Le personnage ajoute 50% de dégats sur sa prochaine atttaque. Peut être multiplié.
 
 
 
@@ -77,7 +79,7 @@
                    <label class="labelAvancement" id="player1pvnumber">100</label>
                    <progress  value="100" max="100" class="avancement" id="player1pv"></progress>
                 </div>  
-                 Dégats: 17-19 <br> Shield Actif [+30]: <span id="shieldPlayer1">0</span>% <br>  Mana  :<span id="manaPlayer1" >100</span> <br> ----[SOIN]---- : <br>Coût : 60 <br> Heal : 35
+                 Dégats: 17-19 <br> Shield Actif [+30]: <span id="shieldPlayer1">0</span>% <br>  Mana  :<span id="manaPlayer1" >100</span> <br> ----[SOIN]---- : <br>Coût (mana) : 60 <br> Heal : 35
             </button>
 
         <br/>
@@ -118,7 +120,7 @@
                    <label class="labelAvancement" id="player2pvnumber">100</label>
                    <progress  value="100" max="100" class="avancement" id="player2pv"></progress>
                 </div>  
-                   Dégats: 15 <br> Shield Actif [+35]: <span id="shieldPlayer2">0</span>% <br>  Mana  :<span id="manaPlayer2" >100</span> <br>----[SNIPER]---- <br> Coût (mana) : 80 <br>Degats : 100
+                   Dégats: 15 <br> Shield Actif [+35]: <span id="shieldPlayer2">0</span>% <br>  Mana  :<span id="manaPlayer2" >100</span> <br>----[Foudre]---- <br> Coût (mana) : 80 <br>Degats : 100
             </button>
           <br/>
           <button onclick="attackperso2()"  class="buttonAction" id="buttonattaqueperso2">
@@ -149,7 +151,7 @@
                    <label class="labelAvancement" id="player3pvnumber">100</label>
                    <progress  value="100" max="100" class="avancement" id="player3pv"></progress>
                 </div>  
-                 Dégats: 6-14  <br> Shield Actif [+48]: <span id="shieldPlayer3">0</span>%  <br> Mana :<span id="manaPlayer3" >100</span> <br>----[SOIN]---- : <br>Coût : 60 <br> Heal : 60
+                 Dégats: 6-14  <br> Shield Actif [+48]: <span id="shieldPlayer3">0</span>%  <br> Mana :<span id="manaPlayer3" >100</span> <br>----[Tempête]---- : <br>Coût (mana) : 80 <br> Dégats : 30
  
             </button>
 <br/>
@@ -164,7 +166,7 @@
            <button onclick="defenseperso3()" class="buttonAction" id="buttondefenseperso3"><div><img type="image" src="images/shield_button.png" class="action" ></div></button>
               
 
-           <button onclick="specialperso3()" class="buttonAction" id="buttonspecialperso3"><div><img type="image"  src="images/heal.png" class="action" ></div></button>
+           <button onclick="specialperso3()" class="buttonAction" id="buttonspecialperso3"><div><img type="image"  src="images/storm.png" class="action" ></div></button>
   </div>
 
 
@@ -183,7 +185,7 @@
                    <progress  value="100" max="100" class="avancement" id="player4pv"></progress>
                 </div> 
 
-                   Dégats: 10-30 <br> Shield Actif [+27]: <span id="shieldPlayer4">0</span>% <br>  Mana :<span id="manaPlayer4" >100</span> <br>----[SNIPER]---- <br> Coût (mana) : 80 <br>Degats : 100
+                   Base Damage: 10-30 <br> Shield Actif [+27]: <span id="shieldPlayer4">0</span>% <br>  Mana :<span id="manaPlayer4" >100</span> <br>----[Potion Magique]---- <br> Coût (mana) : 50 <br>Buff : 50%
             </button>
 
            <br/>
@@ -194,7 +196,7 @@
            <button onclick="defenseperso4()" class="buttonAction" id="buttondefenseperso4"><div><img type="image" src="images/shield_button.png" class="action" ></div></button>
               
 
-           <button onclick="specialperso4()" class="buttonAction" id="buttonspecialperso4"><div><img type="image"  src="images/critiqueDamage.png" class="action" ></div></button>
+           <button onclick="specialperso4()" class="buttonAction" id="buttonspecialperso4"><div><img type="image"  src="images/buff.png" class="action" ></div></button>
   </div>
           </div>
 

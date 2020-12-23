@@ -16,9 +16,9 @@ var randomspecialdegats = [
   "butonMonstre3"
 ];
 
+var buffPerso4= 1;
 
-joueursMax = 4;
-joueursActuels = 0;
+
 
 
 var defenseValeurPerso = [1,1,1,1];
@@ -91,6 +91,50 @@ function loadPage(){
 	document.getElementById("butonPerso2").style.filter = "drop-shadow(0px 0px 10px blue)";
 	document.getElementById("butonPerso3").style.filter = "drop-shadow(0px 0px 10px blue)";
 	document.getElementById("butonPerso4").style.filter = "drop-shadow(0px 0px 10px blue)";
+}
+
+function buff(personnage){
+buffPerso4=buffPerso4+0.5;
+}
+
+
+
+
+function zoneDamage(){
+
+
+var totalZoneDamage = 30;
+
+var degatsZoneMonstre1 =  Math.floor(Math.random() * Math.floor(totalZoneDamage));
+
+totalZoneDamage=totalZoneDamage-degatsZoneMonstre1;
+
+var degatsZoneMonstre2 =  Math.floor(Math.random() * Math.floor(totalZoneDamage));
+
+
+totalZoneDamage=totalZoneDamage-degatsZoneMonstre2;
+
+
+var degatsZoneMonstre3 =  totalZoneDamage;
+
+var ava = document.getElementById('butonMonstre1').getElementsByClassName("avancement")
+	ava[0].value -= degatsZoneMonstre1;
+
+	var label = document.getElementById('butonMonstre1').getElementsByClassName("labelAvancement")
+	label[0].innerHTML = ava[0].value;
+
+var ava = document.getElementById('butonMonstre2').getElementsByClassName("avancement")
+	ava[0].value -= degatsZoneMonstre2;
+
+	var label = document.getElementById('butonMonstre2').getElementsByClassName("labelAvancement")
+	label[0].innerHTML = ava[0].value;
+
+var ava = document.getElementById('butonMonstre3').getElementsByClassName("avancement")
+	ava[0].value -= degatsZoneMonstre3;
+
+	var label = document.getElementById('butonMonstre3').getElementsByClassName("labelAvancement")
+	label[0].innerHTML = ava[0].value;
+
 }
 
 
@@ -234,12 +278,12 @@ function attackperso1(){
 		}
 		var randomAttaquePerso1 = Math.round(Math.random() * (19 - 17) + 17); 
 		document.getElementById("butonPerso1").style.filter = "none";
-	//choixcibleattaque(randomAttaquePerso1);
-		choixcibleattaque(200);
+	choixcibleattaque(randomAttaquePerso1);
+		
 
 
 
-joueursActuels=joueursActuels+1;
+
 }
 
 function defenseperso1(){
@@ -263,7 +307,6 @@ function defenseperso1(){
 
 		document.getElementById('shieldPlayer1').innerHTML=Math.round(100*(1-defenseValeurPerso[0]));
 	document.getElementById("butonPerso1").style.filter = "none";
-joueursActuels=joueursActuels+1;
 }
 
 
@@ -287,7 +330,6 @@ function specialperso1(){
 
 	}
 	document.getElementById("butonPerso1").style.filter = "none";
-joueursActuels=joueursActuels+1;
 }
 
 
@@ -315,7 +357,6 @@ function attackperso2(){
 		}
 		document.getElementById("butonPerso2").style.filter = "none";
 		choixcibleattaque(15);
-joueursActuels=joueursActuels+1;
 }
 
 function defenseperso2(){
@@ -338,7 +379,6 @@ function defenseperso2(){
 
 		document.getElementById('shieldPlayer2').innerHTML=Math.round(100*(1-defenseValeurPerso[1]));
 			document.getElementById("butonPerso2").style.filter = "none";
-joueursActuels=joueursActuels+1;
 }
 
 function specialperso2(){
@@ -360,7 +400,6 @@ function specialperso2(){
 
 	}
 	document.getElementById("butonPerso2").style.filter = "none";
-joueursActuels=joueursActuels+1;
 }
 
 
@@ -379,7 +418,6 @@ function attackperso3(){
 		var randomAttaquePerso2 = Math.round(Math.random() * (14 - 6) + 6); 
 		choixcibleattaque(randomAttaquePerso2);
 
-joueursActuels=joueursActuels+1;
 }
 
 function defenseperso3(){
@@ -402,12 +440,11 @@ function defenseperso3(){
 		}
 	document.getElementById("butonPerso3").style.filter = "none";
 		document.getElementById('shieldPlayer3').innerHTML=Math.round(100*(1-defenseValeurPerso[2]));
-joueursActuels=joueursActuels+1;
 }
 
 function specialperso3(){
-if(manaPlayer1>=60){
-	manaPlayer3=manaPlayer3-60
+if(manaPlayer1>=80){
+	manaPlayer3=manaPlayer3-80
 		document.getElementById('buttonattaqueperso3').disabled=false;
 		document.getElementById('buttondefenseperso3').disabled=false;
 		document.getElementById('buttonspecialperso3').disabled=true;	
@@ -417,10 +454,9 @@ if(manaPlayer1>=60){
 		for (var i = actionsAFermer.length - 1; i >= 0; i--) {
 			hideActions(actionsAFermer[i])
 		}
-		healPlayer(60);
+		zoneDamage();
 }
 	document.getElementById("butonPerso3").style.filter = "none";
-joueursActuels=joueursActuels+1;
 }
 
 
@@ -437,8 +473,8 @@ function attackperso4(){
 		}
 	document.getElementById("butonPerso4").style.filter = "none";
 		var randomAttaquePerso3 = Math.round(Math.random() * (30 - 10) + 10); 
-		choixcibleattaque(randomAttaquePerso3);
-joueursActuels=joueursActuels+1;
+		choixcibleattaque(randomAttaquePerso3*buffPerso4);
+		buffPerso4=1;
 }
 
 function defenseperso4(){
@@ -460,12 +496,11 @@ function defenseperso4(){
 		}
 	document.getElementById("butonPerso4").style.filter = "none";
 			document.getElementById('shieldPlayer4').innerHTML=Math.round(100*(1-defenseValeurPerso[3]));	
-joueursActuels=joueursActuels+1;
 }
 
 function specialperso4(){
-			if(manaPlayer4>=80){
-		manaPlayer4=manaPlayer4-80
+			if(manaPlayer4>=50){
+		manaPlayer4=manaPlayer4-50
 		document.getElementById('manaPlayer4').innerHTML=manaPlayer4;
 
 		document.getElementById('buttonattaqueperso4').disabled=false;
@@ -478,11 +513,10 @@ function specialperso4(){
 			hideActions(actionsAFermer[i])
 		}
 
-		specialCritique(100);
+		buff(personnage4);
 
 	}
 	document.getElementById("butonPerso4").style.filter = "none";
-	joueursActuels=joueursActuels+1;
 }
 
 
@@ -691,14 +725,12 @@ function pertePdV(personnage, perte) {
 
 
 function finDuTour(){
-	if(joueursActuels===joueursMax){
 			document.getElementById('buttonspecialperso1').disabled=false;
 			document.getElementById('buttonspecialperso2').disabled=false;
 			document.getElementById('buttonspecialperso3').disabled=false;
 			document.getElementById('buttonspecialperso4').disabled=false;
 	monstresvivants();
-	joueursActuels=0;
-}
+
 }
 
 function monstresvivants(){
@@ -752,6 +784,7 @@ function attaquemonstre(monstresrestants){
 
 		
 for(var i = 0; i< monstresrestants; i++ ) { 
+		
 	var randomCible = randomciblemonstreattaque[Math.floor(Math.random()*randomciblemonstreattaque.length)];
 		var attaque = Math.round(Math.random() * 30);
 
@@ -834,7 +867,7 @@ for(var i = 0; i< monstresrestants; i++ ) {
 	document.getElementById("butonPerso1").style.filter = "drop-shadow(0px 0px 10px blue)";
 
 	testmorts();
-	joueursActuels=0;
+
 }
 
 
@@ -869,7 +902,7 @@ function testmorts() {
             i--; 
         }
 	}
-	joueursMax=joueursMax-1;
+
 		}
 
 
@@ -901,7 +934,6 @@ function testmorts() {
             i--; 
         }
 	}
-		joueursMax=joueursMax-1;
 		}
 
 
@@ -933,7 +965,6 @@ document.getElementById("player3pv").value=1000
             i--; 
         }
 	}
-		joueursMax=joueursMax-1;
 		}
 
 
@@ -967,7 +998,6 @@ document.getElementById("player4pv").value=1000
             i--; 
         }
 	}
-		joueursMax=joueursMax-1;
 		}
 
 
